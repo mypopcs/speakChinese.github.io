@@ -1,0 +1,3 @@
+files:
+  - source: /dictionary.json
+    translation: /dictionary-%two_letters_code%.json
