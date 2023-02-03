@@ -1,39 +1,16 @@
 {
-  "dict": {
-      "__comments-1": "date",
-      "jan": "1月",
-      "january": "1月",
-      "feb": "2月",
-      "february": "2月",
-      "mar": "3月",
-      "march": "3月",
-      "apr": "4月",
-      "april": "4月",
-      "may": "5月",
-      "jun": "6月",
-      "june": "6月",
-      "jul": "7月",
-      "july": "7月",
-      "aug": "8月",
-      "august": "8月",
-      "sep": "9月",
-      "september": "9月",
-      "oct": "10月",
-      "october": "10月",
-      "nov": "11月",
-      "november": "11月",
-      "dec": "12月",
-      "december": "12月",
-  
-      "hours ago": "小时前",
-      "minutes ago": "分钟前",
-  
-      "sunday": "星期天",
-      "monday": "星期一",
-      "tuesday": "星期二",
-      "wednesday": "星期三",
-      "thursday": "星期四",
-      "friday": "星期五",
-      "saturday": "星期六",
-  }
+   "key": "123-456-222",
+   "translator": {
+      "lastname": "Williams",
+      "firstname": "Ian"
+   },
+   "proofreader": {
+      "lastname": "Ross",
+      "firstname": "Mike"
+   },
+   "project": "The localization content for Umbrella",
+   "apptype": [
+      "Website",
+      "Technology"
+   ]
 }
