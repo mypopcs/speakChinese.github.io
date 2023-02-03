@@ -1,16 +1,6 @@
 {
-   "key": "123-456-222",
-   "translator": {
-      "lastname": "Williams",
-      "firstname": "Ian"
-   },
-   "proofreader": {
-      "lastname": "Ross",
-      "firstname": "Mike"
-   },
-   "project": "The localization content for Umbrella",
-   "apptype": [
-      "Website",
-      "Technology"
-   ]
+   "dict": {
+      "__comments-1": "date",
+      "jan": "1月"
+   }
 }
