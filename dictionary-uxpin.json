@@ -1,7 +1,7 @@
 {
   "dict": {
     "__comments-Other": "其他",
-    "scrolling": "滚动方向",
+    "SCROLLING": "滚动方向",
     "__dict-end": "end"
   }
 }
