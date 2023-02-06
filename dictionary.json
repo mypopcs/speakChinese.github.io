@@ -1790,6 +1790,7 @@
         "successfully fetched and fast-forwarded from upstream": "",
         "branch created.": "分支已成功创建。",
         "Documentation": "文档",
+        "preview": "预览",
         "__dict-end": "end"
    }
 }
