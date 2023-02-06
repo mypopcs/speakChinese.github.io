@@ -1791,6 +1791,7 @@
         "branch created.": "分支已成功创建。",
         "Documentation": "文档",
         "preview": "预览",
+        "scrolling": "滚动方向",
         "__dict-end": "end"
    }
 }
