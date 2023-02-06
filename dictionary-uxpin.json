@@ -1,17 +1,6 @@
 {
-  "css":[
-    {
-      "_comments": [
-        "if key === '!html' replace target by: $(selector).html(replacement)",
-        "else: $(selector).attr(key, replacement)"
-      ],
-      "key": "!html",
-      "selector": "a[aria-label='Pull requests you created']",
-      "replacement": "拉取请求"
-    }
-  ],
   "dict": {
-    "__comments-1": "date",
+    "__comments-Other": "其他",
     "scrolling": "滚动方向",
     "__dict-end": "end"
   }
