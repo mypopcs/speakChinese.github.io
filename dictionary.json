@@ -1792,6 +1792,7 @@
         "Documentation": "文档",
         "preview": "预览",
         "scrolling": "滚动方向",
+        "filter:": "过滤:",
         "__dict-end": "end"
    }
 }
