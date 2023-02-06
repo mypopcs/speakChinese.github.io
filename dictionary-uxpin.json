@@ -1,4 +1,9 @@
 {
+  "__comments-css": [
+    "css selector",
+    "css选择器",
+    "对于部分不方便直接替换的词条，需要通过jquery css选择器替换"
+  ],
   "dict": {
     "scrolling": "滚动方向",
     "__dict-end": "end"
