@@ -28,9 +28,10 @@
     "Pages": "页面",
     "Sections": "部件",
     "Navigation": "导航",
-    "Collection Lists":"收藏",
-    "Content Fields":"内容字段",
-    "Elements":"元素",
+    "Collection Lists": "收藏",
+    "Content Fields": "内容字段",
+    "Elements": "元素",
+    "New": "新建",
     "__dict-end": "end"
   }
 }
