@@ -1,5 +1,5 @@
 {
-   "__comments-css": [
+  "__comments-css": [
     "css selector",
     "css选择器",
     "对于部分不方便直接替换的词条，需要通过jquery css选择器替换"
@@ -15,21 +15,65 @@
       "replacement": "拉取请求"
     }
   ],
+
   "dict": {
     "__comments-1": "date",
-    "constraints": "约束",
-    "publish": "发布",
-    "invite": "邀请",
-    "insert": "插入",
-    "layout": "布局",
-    "text": "文本",
-    "pages": "页面",
-    "sections": "部件",
-    "navigation": "导航",
-    "collection lists": "收藏",
-    "content fields": "内容字段",
-    "elements": "元素",
-    "new": "新建",
+    "jan": "1月",
+    "january": "1月",
+    "feb": "2月",
+    "february": "2月",
+    "mar": "3月",
+    "march": "3月",
+    "apr": "4月",
+    "april": "4月",
+    "may": "5月",
+    "jun": "6月",
+    "june": "6月",
+    "jul": "7月",
+    "july": "7月",
+    "aug": "8月",
+    "august": "8月",
+    "sep": "9月",
+    "september": "9月",
+    "oct": "10月",
+    "october": "10月",
+    "nov": "11月",
+    "november": "11月",
+    "dec": "12月",
+    "december": "12月",
+
+    "hours ago": "小时前",
+    "minutes ago": "分钟前",
+
+    "sunday": "星期天",
+    "monday": "星期一",
+    "tuesday": "星期二",
+    "wednesday": "星期三",
+    "thursday": "星期四",
+    "friday": "星期五",
+    "saturday": "星期六",
+
+    "__comments-2": "HomePage",
+    "sign in": "登录",
+    "sign up": "注册",
+    "team": "团队",
+    "enterprise": "企业",
+    "pricing": "价格",
+    "search github": "搜索 GitHub",
+    "why github?": "为何选择 GitHub？",
+    "built for developers": "专为开发者打造",
+    "email address": "电子邮箱地址",
+    "sign up for github": "注册 GitHub",
+    "refresh": "刷新",
+    "developers": "开发者",
+    "fortune 50": "财富 50 强",
+    "spoken language:": "自然语言",
+    "any": "所有",
+    "date range:": "时间范围",
+    "today": "今天",
+    "this week": "本周",
+    "this month": "本月",
+
     "__dict-end": "end"
   }
 }
