@@ -1,18 +1,35 @@
 {
+   "__comments-css": [
+    "css selector",
+    "css选择器",
+    "对于部分不方便直接替换的词条，需要通过jquery css选择器替换"
+  ],
+  "css": [
+    {
+      "_comments": [
+        "if key === '!html' replace target by: $(selector).html(replacement)",
+        "else: $(selector).attr(key, replacement)"
+      ],
+      "key": "!html",
+      "selector": "a[aria-label='Pull requests you created']",
+      "replacement": "拉取请求"
+    }
+  ],
   "dict": {
-    "Constraints": "约束",
-    "Publish": "发布",
-    "Invite": "邀请",
-    "Insert": "插入",
-    "Layout": "布局",
-    "Text": "文本",
-    "Pages": "页面",
-    "Sections": "部件",
-    "Navigation": "导航",
-    "Collection Lists": "收藏",
-    "Content Fields": "内容字段",
-    "Elements": "元素",
-    "New": "新建",
+    "__comments-1": "date",
+    "constraints": "约束",
+    "publish": "发布",
+    "invite": "邀请",
+    "insert": "插入",
+    "layout": "布局",
+    "text": "文本",
+    "pages": "页面",
+    "sections": "部件",
+    "navigation": "导航",
+    "collection lists": "收藏",
+    "content fields": "内容字段",
+    "elements": "元素",
+    "new": "新建",
     "__dict-end": "end"
   }
 }
