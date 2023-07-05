@@ -3372,7 +3372,7 @@ function $p(component, nextSibling) {
 }
 //监听输入
 function listenInput(val) {
-    var result = isReflectSupported(); // 调用 isReflectSupported() 函数并将返回值赋给 nextSibling 变量
+    var result = isReflectSupported(); // 调用 isReflectSupported() 函数并将返回值赋给 result 变量
   
     return function() {
       var n = No(val); // 调用 No() 函数并将 val 参数传入，将返回值赋给 n 变量
