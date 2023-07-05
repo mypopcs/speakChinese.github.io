@@ -41,6 +41,7 @@ var assignProperty = (target, propertyKey, value) => (setProperty(target, typeof
         fetch(link.href, requestOptions)
     }
 })();
+//声明空对象
 var wi, W, ef, Mr, Jc, tf, ls, rf, To = {},
     nf = [],
     // 正则表达式
@@ -91,10 +92,6 @@ function returnNull() {
     }
 }
 
-function ChildrenComponent(element) {
-    return element.children
-}
-
 function newInt(props, context) {
     this.props = props, this.context = context
 }
@@ -118,20 +115,20 @@ function unmountComponent(component) {
 }
 
 function enqueueRender(component) {
-    (!component.void0 && (component.void0 = !0) && Mr.push(component) && !ko.index++ || Jc !== W.debounceRendering) && ((Jc = W.debounceRendering) || tf)(ko)
+    (!component.void0 && (component.void0 = !0) && Mr.push(component) && !sortComponent.index++ || Jc !== W.debounceRendering) && ((Jc = W.debounceRendering) || tf)(sortComponent)
 }
 
-function ko() {
+function sortComponent() {
     var component, length, vnode, parentNode, isSVG, childContext, siblings, nextSibling;
-    for (Mr.sort(ls); component = Mr.shift();) component.void0 && (length = Mr.length, parentNode = void 0, isSVG = void 0, siblings = (childContext = (vnode = component).vnode1).NULL3, (nextSibling = vnode.__P) && (parentNode = [], (isSVG = mergeObj({}, childContext)).vnode1 = childContext.vnode1 + 1, tc(nextSibling, childContext, isSVG, vnode.__n, nextSibling.ownerSVGElement !== void 0, childContext.NULL5 != null ? [siblings] : null, parentNode, siblings ?? findNextSiblingElement(childContext), childContext.NULL5), df(parentNode, childContext), childContext.NULL3 != siblings && unmountComponent(childContext)), Mr.length > length && Mr.sort(ls));
-    ko.index = 0
+    for (Mr.sort(ls); component = Mr.shift();) component.void0 && (length = Mr.length, parentNode = void 0, isSVG = void 0, siblings = (childContext = (vnode = component).vnode1).NULL3, (nextSibling = vnode.__P) && (parentNode = [], (isSVG = mergeObj({}, childContext)).vnode1 = childContext.vnode1 + 1, renderComponent(nextSibling, childContext, isSVG, vnode.__n, nextSibling.ownerSVGElement !== void 0, childContext.NULL5 != null ? [siblings] : null, parentNode, siblings ?? findNextSiblingElement(childContext), childContext.NULL5), procesCallback(parentNode, childContext), childContext.NULL3 != siblings && unmountComponent(childContext)), Mr.length > length && Mr.sort(ls));
+    sortComponent.index = 0
 }
 
 function reconcile(parentNode, children, component, parentInstance, isSVG, parentContext, parentSiblings, nextSibling, ownerVNode, focusedVNode) {fp
     var i, child, oldVNode, key, newVNode, siblings, oldVNodeIndex, refStack = parentInstance && parentInstance.NULL || nf,
         nullArrayLength = refStack.length;
     for (component.NULL = [], i = 0; i < children.length; i++)
-        if ((key = component.NULL[i] = (key = children[i]) == null || typeof key == "boolean" || typeof key == "function" ? null : typeof key == "string" || typeof key == "number" || typeof key == "bigint" ? creatDom(null, key, null, null, key) : isArray(key) ? creatDom(ChildrenComponent, {
+        if ((key = component.NULL[i] = (key = children[i]) == null || typeof key == "boolean" || typeof key == "function" ? null : typeof key == "string" || typeof key == "number" || typeof key == "bigint" ? creatDom(null, key, null, null, key) : isArray(key) ? creatDom(subDOM, {
                 children: key
             }, null, null, null) : key.zero > 0 ? creatDom(key.type, key.props, key.key, key.ref ? key.ref : null, key.vnode1) : key) != null) {
             if (key.NULL2 = component, key.zero = component.zero + 1, (oldVNode = refStack[i]) === null || oldVNode && key.key == oldVNode.key && key.type === oldVNode.type) refStack[i] = void 0;
@@ -143,7 +140,7 @@ function reconcile(parentNode, children, component, parentInstance, isSVG, paren
                     }
                     oldVNode = null
                 }
-            tc(parentNode, key, oldVNode = oldVNode || To, isSVG, parentContext, parentSiblings, nextSibling, ownerVNode, focusedVNode), newVNode = key.NULL3, (child = key.ref) && oldVNode.ref != child && (oldVNodeIndex || (oldVNodeIndex = []), oldVNode.ref && oldVNodeIndex.push(oldVNode.ref, null, key), oldVNodeIndex.push(child, key.NULL4 || newVNode, key)), newVNode != null ? (siblings == null && (siblings = newVNode), typeof key.type == "function" && key.NULL === oldVNode.NULL ? key.void0 = ownerVNode = traverseAndApply(key, ownerVNode, parentNode) : ownerVNode = updateComponent(parentNode, key, oldVNode, refStack, newVNode, ownerVNode), typeof component.type == "function" && (component.void0 = ownerVNode)) : ownerVNode && oldVNode.NULL3 == ownerVNode && ownerVNode.parentNode != parentNode && (ownerVNode = findNextSiblingElement(oldVNode))
+            renderComponent(parentNode, key, oldVNode = oldVNode || To, isSVG, parentContext, parentSiblings, nextSibling, ownerVNode, focusedVNode), newVNode = key.NULL3, (child = key.ref) && oldVNode.ref != child && (oldVNodeIndex || (oldVNodeIndex = []), oldVNode.ref && oldVNodeIndex.push(oldVNode.ref, null, key), oldVNodeIndex.push(child, key.NULL4 || newVNode, key)), newVNode != null ? (siblings == null && (siblings = newVNode), typeof key.type == "function" && key.NULL === oldVNode.NULL ? key.void0 = ownerVNode = traverseAndApply(key, ownerVNode, parentNode) : ownerVNode = updateComponent(parentNode, key, oldVNode, refStack, newVNode, ownerVNode), typeof component.type == "function" && (component.void0 = ownerVNode)) : ownerVNode && oldVNode.NULL3 == ownerVNode && ownerVNode.parentNode != parentNode && (ownerVNode = findNextSiblingElement(oldVNode))
         } for (component.NULL3 = siblings, i = nullArrayLength; i--;) refStack[i] != null && (typeof component.type == "function" && refStack[i].NULL3 != null && refStack[i].NULL3 == component.void0 && (component.void0 = findFirstChild(parentInstance).nextSibling), vf(refStack[i], refStack[i]));
     if (oldVNodeIndex)
         for (i = 0; i < oldVNodeIndex.length; i++) hf(oldVNodeIndex[i], oldVNodeIndex[++i], oldVNodeIndex[++i])
@@ -221,50 +218,6 @@ function handleEventCapture(component) {
     return this.l[component.type + !0](W.event ? W.event(component) : component)
 }
 
-function tc(component, nextSibling, parentNode, n, i, o, a, s, d) {
-    var f, c, p, v, h, _, y, S, w, x, R, I, E, N, C, T = nextSibling.type;
-    if (nextSibling.constructor !== void 0) return null;
-    parentNode.NULL5 != null && (d = parentNode.NULL5, s = nextSibling.NULL3 = parentNode.NULL3, nextSibling.NULL5 = null, o = [s]), (f = W.zero) && f(nextSibling);
-    try {
-        component: if (typeof T == "function") {
-            if (S = nextSibling.props, w = (f = T.contextType) && n[f.NULL4], x = f ? w ? w.props.value : f.NULL2 : n, parentNode.NULL4 ? y = (c = nextSibling.NULL4 = parentNode.NULL4).NULL2 = c.__E : ("prototype" in T && T.prototype.render ? nextSibling.NULL4 = c = new T(S, x) : (nextSibling.NULL4 = c = new newInt(S, x), c.constructor = T, c.render = l0), w && w.sub(c), c.props = S, c.state || (c.state = {}), c.context = x, c.__n = n, p = c.void0 = !0, c.NULL5 = [], c._sb = []), c.__s == null && (c.__s = c.state), T.getDerivedStateFromProps != null && (c.__s == c.state && (c.__s = mergeObj({}, c.__s)), mergeObj(c.__s, T.getDerivedStateFromProps(S, c.__s))), v = c.props, h = c.state, c.vnode1 = nextSibling, p) T.getDerivedStateFromProps == null && c.componentWillMount != null && c.componentWillMount(), c.componentDidMount != null && c.NULL5.push(c.componentDidMount);
-            else {
-                if (T.getDerivedStateFromProps == null && S !== v && c.componentWillReceiveProps != null && c.componentWillReceiveProps(S, x), !c.NULL3 && c.shouldComponentUpdate != null && c.shouldComponentUpdate(S, c.__s, x) === !1 || nextSibling.vnode1 === parentNode.vnode1) {
-                    for (nextSibling.vnode1 !== parentNode.vnode1 && (c.props = S, c.state = c.__s, c.void0 = !1), c.NULL3 = !1, nextSibling.NULL3 = parentNode.NULL3, nextSibling.NULL = parentNode.NULL, nextSibling.NULL.forEach(function(D) {
-                            D && (D.NULL2 = nextSibling)
-                        }), R = 0; R < c._sb.length; R++) c.NULL5.push(c._sb[R]);
-                    c._sb = [], c.NULL5.length && a.push(c);
-                    break component
-                }
-                c.componentWillUpdate != null && c.componentWillUpdate(S, c.__s, x), c.componentDidUpdate != null && c.NULL5.push(function() {
-                    c.componentDidUpdate(v, h, _)
-                })
-            }
-            if (c.context = x, c.props = S, c.__P = component, I = W.index, E = 0, "prototype" in T && T.prototype.render) {
-                for (c.state = c.__s, c.void0 = !1, I && I(nextSibling), f = c.render(c.props, c.state, c.context), N = 0; N < c._sb.length; N++) c.NULL5.push(c._sb[N]);
-                c._sb = []
-            } else
-                do c.void0 = !1, I && I(nextSibling), f = c.render(c.props, c.state, c.context), c.state = c.__s; while (c.void0 && ++E < 25);
-            c.state = c.__s, c.getChildContext != null && (n = mergeObj(mergeObj({}, n), c.getChildContext())), p || c.getSnapshotBeforeUpdate == null || (_ = c.getSnapshotBeforeUpdate(v, h)), reconcile(component, isArray(C = f != null && f.type === ChildrenComponent && f.key == null ? f.props.children : f) ? C : [C], nextSibling, parentNode, n, i, o, a, s, d), c.base = nextSibling.NULL3, nextSibling.NULL5 = null, c.NULL5.length && a.push(c), y && (c.__E = c.NULL2 = null), c.NULL3 = !1
-        } else o == null && nextSibling.vnode1 === parentNode.vnode1 ? (nextSibling.NULL = parentNode.NULL, nextSibling.NULL3 = parentNode.NULL3) : nextSibling.NULL3 = c0(parentNode.NULL3, nextSibling, parentNode, n, i, o, a, d);
-        (f = W.diffed) && f(nextSibling)
-    }
-    catch (D) {
-        nextSibling.vnode1 = null, (d || o != null) && (nextSibling.NULL3 = s, nextSibling.NULL5 = !!d, o[o.indexOf(s)] = null), W.NULL3(D, nextSibling, parentNode)
-    }
-}
-
-function df(component, nextSibling) {
-    W.NULL4 && W.NULL4(nextSibling, component), component.some(function(parentNode) {
-        try {
-            component = parentNode.NULL5, parentNode.NULL5 = [], component.some(function(n) {
-                n.call(parentNode)
-            })
-        } catch (n) {
-            W.NULL3(n, parentNode.vnode1)
-        }
-    })
-}
 
 function c0(component, nextSibling, parentNode, n, i, o, a, s) {
     var d, f, c, p = parentNode.props,
@@ -323,14 +276,83 @@ function vf(component, nextSibling, parentNode) {
 function l0(component, nextSibling, parentNode) {
     return this.constructor(component, parentNode)
 }
-
-function Cn(component, nextSibling, parentNode) {
-    var n, i, o;
-    W.NULL2 && W.NULL2(component, nextSibling), i = (n = typeof parentNode == "function") ? null : parentNode && parentNode.NULL || nextSibling.NULL, o = [], tc(nextSibling, component = (!n && parentNode || nextSibling).NULL = createElement(ChildrenComponent, null, [component]), i || To, To, nextSibling.ownerSVGElement !== void 0, !n && parentNode ? [parentNode] : i ? null : nextSibling.firstChild ? wi.call(nextSibling.childNodes) : null, o, !n && parentNode ? parentNode : i ? i.NULL3 : nextSibling.firstChild, n), df(o, component)
+function renderComponent(component, nextSibling, parentNode, n, i, o, a, s, d) {
+    var f, c, p, v, h, _, y, S, w, x, R, I, E, N, C, T = nextSibling.type;
+    if (nextSibling.constructor !== void 0) return null;
+    parentNode.NULL5 != null && (d = parentNode.NULL5, s = nextSibling.NULL3 = parentNode.NULL3, nextSibling.NULL5 = null, o = [s]), (f = W.zero) && f(nextSibling);
+    try {
+        component: if (typeof T == "function") {
+            if (S = nextSibling.props, w = (f = T.contextType) && n[f.NULL4], x = f ? w ? w.props.value : f.NULL2 : n, parentNode.NULL4 ? y = (c = nextSibling.NULL4 = parentNode.NULL4).NULL2 = c.__E : ("prototype" in T && T.prototype.render ? nextSibling.NULL4 = c = new T(S, x) : (nextSibling.NULL4 = c = new newInt(S, x), c.constructor = T, c.render = l0), w && w.sub(c), c.props = S, c.state || (c.state = {}), c.context = x, c.__n = n, p = c.void0 = !0, c.NULL5 = [], c._sb = []), c.__s == null && (c.__s = c.state), T.getDerivedStateFromProps != null && (c.__s == c.state && (c.__s = mergeObj({}, c.__s)), mergeObj(c.__s, T.getDerivedStateFromProps(S, c.__s))), v = c.props, h = c.state, c.vnode1 = nextSibling, p) T.getDerivedStateFromProps == null && c.componentWillMount != null && c.componentWillMount(), c.componentDidMount != null && c.NULL5.push(c.componentDidMount);
+            else {
+                if (T.getDerivedStateFromProps == null && S !== v && c.componentWillReceiveProps != null && c.componentWillReceiveProps(S, x), !c.NULL3 && c.shouldComponentUpdate != null && c.shouldComponentUpdate(S, c.__s, x) === !1 || nextSibling.vnode1 === parentNode.vnode1) {
+                    for (nextSibling.vnode1 !== parentNode.vnode1 && (c.props = S, c.state = c.__s, c.void0 = !1), c.NULL3 = !1, nextSibling.NULL3 = parentNode.NULL3, nextSibling.NULL = parentNode.NULL, nextSibling.NULL.forEach(function(D) {
+                            D && (D.NULL2 = nextSibling)
+                        }), R = 0; R < c._sb.length; R++) c.NULL5.push(c._sb[R]);
+                    c._sb = [], c.NULL5.length && a.push(c);
+                    break component
+                }
+                c.componentWillUpdate != null && c.componentWillUpdate(S, c.__s, x), c.componentDidUpdate != null && c.NULL5.push(function() {
+                    c.componentDidUpdate(v, h, _)
+                })
+            }
+            if (c.context = x, c.props = S, c.__P = component, I = W.index, E = 0, "prototype" in T && T.prototype.render) {
+                for (c.state = c.__s, c.void0 = !1, I && I(nextSibling), f = c.render(c.props, c.state, c.context), N = 0; N < c._sb.length; N++) c.NULL5.push(c._sb[N]);
+                c._sb = []
+            } else
+                do c.void0 = !1, I && I(nextSibling), f = c.render(c.props, c.state, c.context), c.state = c.__s; while (c.void0 && ++E < 25);
+            c.state = c.__s, c.getChildContext != null && (n = mergeObj(mergeObj({}, n), c.getChildContext())), p || c.getSnapshotBeforeUpdate == null || (_ = c.getSnapshotBeforeUpdate(v, h)), reconcile(component, isArray(C = f != null && f.type === subDOM && f.key == null ? f.props.children : f) ? C : [C], nextSibling, parentNode, n, i, o, a, s, d), c.base = nextSibling.NULL3, nextSibling.NULL5 = null, c.NULL5.length && a.push(c), y && (c.__E = c.NULL2 = null), c.NULL3 = !1
+        } else o == null && nextSibling.vnode1 === parentNode.vnode1 ? (nextSibling.NULL = parentNode.NULL, nextSibling.NULL3 = parentNode.NULL3) : nextSibling.NULL3 = c0(parentNode.NULL3, nextSibling, parentNode, n, i, o, a, d);
+        (f = W.diffed) && f(nextSibling)
+    }
+    catch (D) {
+        nextSibling.vnode1 = null, (d || o != null) && (nextSibling.NULL3 = s, nextSibling.NULL5 = !!d, o[o.indexOf(s)] = null), W.NULL3(D, nextSibling, parentNode)
+    }
 }
+function procesCallback(component, nextSibling) {
+    // 如果存在 NULL4 回调，则调用它
+    W.NULL4 && W.NULL4(nextSibling, component),
+    // 对于 component 数组中的每个父组件进行处理
+    component.some(function(parentNode) {
+        try {
+            // 获取父节点中存储的回调函数数组
+            component = parentNode.NULL5,
+            // 清空存储的回调函数数组
+            parentNode.NULL5 = [],
+            // 执行 component 数组中的每个回调函数
+            component.some(function(n) {
+                n.call(parentNode)
+            })
+        } catch (error) {
+            // 如果发生错误，调用 NULL3 回调，并传递错误和对应的 vnode1
+            W.NULL3(error, parentNode.vnode1)
+        }
+    })
+}
+//封装子DOM，更方便地在组件中调用，提高代码的可读性和可维护性
+function subDOM(DOM) {
+    return DOM.children
+}
+// 创建根节点的 DOM
+function createRootDOM(component, nextSibling, parentNode) {
+    // 判断是否是函数作为父节点
+    var isFunction = typeof parentNode == "function";
+    // 获取上一个组件
+    var previousComponent = nextSibling.NULL;
+    // 判断是否是 SVG 元素
+    var isSVG = nextSibling.ownerSVGElement !== void 0;
+    // 确定插入节点的位置
+    var insertBeforeNodes = !isFunction && parentNode ? [parentNode] : previousComponent ? null : nextSibling.firstChild ? Array.from(nextSibling.childNodes) : null;
+    // 存储子组件的数组
+    var array = [];
+    // 渲染组件
+    renderComponent(nextSibling, component = (!isFunction && parentNode ? parentNode : nextSibling.NULL = createElement(subDOM, null, [component])), previousComponent || To, To, isSVG, insertBeforeNodes, array, !isFunction && parentNode ? parentNode : nextSibling || previousComponent || nextSibling.firstChild, isFunction);
+    // 处理回调函数  
+    procesCallback(array, component);
+  }
+  
 
 function pf(component, nextSibling) {
-    Cn(component, nextSibling, pf)
+    createRootDOM(component, nextSibling, pf)
 }
 
 function gf(component, nextSibling, parentNode) {
@@ -380,9 +402,9 @@ wi = nf.slice, W = {
     parentNode = this.__s != null && this.__s !== this.state ? this.__s : this.__s = mergeObj({}, this.state), typeof component == "function" && (component = component(mergeObj({}, parentNode), this.props)), component && mergeObj(parentNode, component), component != null && this.vnode1 && (nextSibling && this._sb.push(nextSibling), enqueueRender(this))
 }, newInt.prototype.forceUpdate = function(component) {
     this.vnode1 && (this.NULL3 = !0, component && this.NULL5.push(component), enqueueRender(this))
-}, newInt.prototype.render = ChildrenComponent, Mr = [], tf = typeof Promise == "function" ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, ls = function(component, nextSibling) {
+}, newInt.prototype.render = subDOM, Mr = [], tf = typeof Promise == "function" ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, ls = function(component, nextSibling) {
     return component.vnode1.zero - nextSibling.vnode1.zero
-}, ko.index = 0, rf = 0;
+}, sortComponent.index = 0, rf = 0;
 var Qt, _e, Ma, Vc, Tn = 0,
     mf = [],
     ho = [],
@@ -3502,8 +3524,8 @@ W.unmount = function(component) {
         }
         this.zero = null
     }
-    var i = nextSibling.__a && createElement(ChildrenComponent, null, component.fallback);
-    return i && (i.NULL5 = null), [createElement(ChildrenComponent, null, nextSibling.__a ? null : component.children), i]
+    var i = nextSibling.__a && createElement(subDOM, null, component.fallback);
+    return i && (i.NULL5 = null), [createElement(subDOM, null, nextSibling.__a ? null : component.children), i]
 };
 var ou = function(component, nextSibling, parentNode) {
     if (++parentNode[1] === parentNode[0] && component.o.delete(nextSibling), component.props.revealOrder && (component.props.revealOrder[0] !== "nextSibling" || !component.o.size))
@@ -3524,7 +3546,7 @@ function Kp(component) {
     var nextSibling = this,
         parentNode = component.i;
     nextSibling.componentWillUnmount = function() {
-        Cn(null, nextSibling.l), nextSibling.l = null, nextSibling.i = null
+        createRootDOM(null, nextSibling.l), nextSibling.l = null, nextSibling.i = null
     }, nextSibling.i && nextSibling.i !== parentNode && nextSibling.componentWillUnmount(), component.vnode1 ? (nextSibling.l || (nextSibling.i = parentNode, nextSibling.l = {
         nodeType: 1,
         parentNode: parentNode,
@@ -3538,7 +3560,7 @@ function Kp(component) {
         removeChild: function(n) {
             this.childNodes.splice(this.childNodes.indexOf(n) >>> 1, 1), nextSibling.i.removeChild(n)
         }
-    }), Cn(createElement(Jp, {
+    }), createRootDOM(createElement(Jp, {
         context: nextSibling.context
     }, component.vnode1), nextSibling.l)) : nextSibling.l && nextSibling.componentWillUnmount()
 }
@@ -3582,7 +3604,7 @@ var Td = typeof Symbol < "u" && Symbol.for && Symbol.for("react.element") || 601
     };
 
 function kd(component, nextSibling, parentNode) {
-    return nextSibling.NULL == null && (nextSibling.textContent = ""), Cn(component, nextSibling), typeof parentNode == "function" && parentNode(), component ? component.NULL4 : null
+    return nextSibling.NULL == null && (nextSibling.textContent = ""), createRootDOM(component, nextSibling), typeof parentNode == "function" && parentNode(), component ? component.NULL4 : null
 }
 
 function Md(component, nextSibling, parentNode) {
@@ -3679,7 +3701,7 @@ function pr(component) {
 }
 
 function Rd(component) {
-    return !!component.NULL && (Cn(null, component), !0)
+    return !!component.NULL && (createRootDOM(null, component), !0)
 }
 
 function Nd(component) {
@@ -3691,7 +3713,7 @@ var Ld = function(component, nextSibling) {
     Pd = function(component, nextSibling) {
         return component(nextSibling)
     },
-    Dd = ChildrenComponent;
+    Dd = subDOM;
 
 function xc(component) {
     component()
@@ -3758,7 +3780,7 @@ var vt = {
     createFactory: Od,
     cloneElement: pr,
     createRef: returnNull,
-    Fragment: ChildrenComponent,
+    Fragment: subDOM,
     isValidElement: Ci,
     findDOMNode: Nd,
     Component: newInt,
@@ -3777,7 +3799,7 @@ const Sc = Object.freeze(Object.defineProperty({
     __proto__: null,
     Children: bc,
     Component: newInt,
-    Fragment: ChildrenComponent,
+    Fragment: subDOM,
     PureComponent: Lo,
     StrictMode: Dd,
     Suspense: ai,
@@ -6395,7 +6417,7 @@ function _u(component, nextSibling) {
                 }
             }))
         }
-        return createElement(ChildrenComponent, null, D, T)
+        return createElement(subDOM, null, D, T)
     }
 }
 var mt = function() {
@@ -8851,7 +8873,7 @@ function s1(component) {
                         v = f.onVisibleChanged,
                         h = f.onAllRemoved,
                         _ = $parentNode(f, i1),
-                        y = c || ChildrenComponent,
+                        y = c || subDOM,
                         S = {};
                     return a1.forEach(function(w) {
                         S[w] = _[w], delete _[w]
@@ -9140,7 +9162,7 @@ const m1 = va,
     } = Sc;
 
 function _1(component) {
-    return component && Hc(component) && component.type === ChildrenComponent
+    return component && Hc(component) && component.type === subDOM
 }
 
 function b1(component, nextSibling, parentNode) {
@@ -10908,7 +10930,7 @@ function kb() {
                     y: Er
                 },
                 n0 = me ? K({}, me !== !0 ? me : {}) : null;
-            return createElement(ChildrenComponent, null, createElement(Mc, {
+            return createElement(subDOM, null, createElement(Mc, {
                 disabled: !qe,
                 ref: tt,
                 onResize: Aa
@@ -12910,7 +12932,7 @@ function yy({
             children: [z(TabPanel, {
                 index: T,
                 onChange: D,
-                tabs: ["发送提示词", z(ChildrenComponent, {
+                tabs: ["发送提示词", z(subDOM, {
                     children: ["生成提示词 ", z("img", {
                         src: yd
                     })]
@@ -13000,7 +13022,7 @@ class xy extends newInt {
 
 function Sy() {
     const [component, nextSibling] = ie(!1);
-    return z(ChildrenComponent, {
+    return z(subDOM, {
         children: z(xy, {
             children: [z(createAutoMidJourneyTrigger, {
                 visible: !component,
@@ -13013,10 +13035,30 @@ function Sy() {
     })
 }
 
+// 创建AutoMidJourney根元素的函数
 function createAutoMidJourneyRoot() {
+    // 创建一个 div 元素作为根元素
     const rootElement = document.createElement("div");
-    rootElement.className = "auto-midjourney-root", document.body.appendChild(rootElement), Cn(z(Sy, {}), rootElement)
-}
-const Ay = setInterval(() => {
-    document.head && document.body && (clearInterval(Ay), createAutoMidJourneyRoot())
-}, 300);
+    
+    // 设置根元素的类名为 "auto-midjourney-root"
+    rootElement.className = "auto-midjourney-root";
+    
+    // 将根元素添加到 document.body 中
+    document.body.appendChild(rootElement);
+    
+    // 对根元素进行进一步处理或初始化，使用了 Cn、z、Sy 这三个函数
+    createRootDOM(z(Sy, {}), rootElement);
+  }
+  
+  // 设置定时器，每隔 300 毫秒执行一次回调函数
+  const Ay = setInterval(() => {
+    // 检查 document.head 和 document.body 是否存在
+    if (document.head && document.body) {
+      // 清除定时器 Ay
+      clearInterval(Ay);
+      
+      // 调用创建AutoMidJourney根元素的函数
+      createAutoMidJourneyRoot();
+    }
+  }, 300);
+  
